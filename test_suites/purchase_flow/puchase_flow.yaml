@@ -1,0 +1,6 @@
+CAPABILITIES:
+  platformName: Android
+  platformVersion: 5.1
+  deviceName: HYFALBV899999999
+  appPackage: com.ebay.mobile
+  appActivity: com.ebay.mobile.activities.MainActivity

@@ -9,12 +9,12 @@ DEFAULT_WAIT_TIME = 10
 
 
 class BasePage:
-    def __init__(self, ip_address, port_no, desire_capabilities=False):
+    def __init__(self):
         """
         Initializing the appium driver
         :param driver: appium device driver
         """
-        remote_inst = RemoteInit(ip_address, port_no, desire_capabilities)
+        remote_inst = RemoteInit()
         self.driver = remote_inst.driver
         logging.getLogger().setLevel(logging.INFO)
         self.log = logging.getLogger(__name__)

@@ -1,0 +1,9 @@
+ip_address: '127.0.0.1'
+port_no: '4723'
+desire_capabilities: {
+                      "platformName": "Android",
+                      "platformVersion": "5.1",
+                      "deviceName": "HYFALBV899999999",
+                      "appPackage": "com.ebay.mobile",
+                      "appActivity": "com.ebay.mobile.activities.MainActivity"
+                    }

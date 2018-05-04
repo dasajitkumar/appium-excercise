@@ -4,18 +4,20 @@ from selenium.webdriver.common.by import By
 
 class UserLogin:
     # Login Locators
-    login_button = (By.ID, 'com.ebay.mobile:id/button_sign_in')
-    user_name = (By.ID, 'com.ebay.mobile:id/edit_text_username')
-    password = (By.ID, 'com.ebay.mobile:id/edit_text_password')
-    sign_in_button = (By.ID, 'com.ebay.mobile:id/button_sign_in')
-    no_thanks_opt = (By.ID, 'com.ebay.mobile:id/button_google_deny')
+    login_button = (By.ID, 'button_sign_in')
+    user_name = (By.ID, 'edit_text_username')
+    password = (By.ID, 'edit_text_password')
+    sign_in_button = (By.ID, 'button_sign_in')
+    no_thanks_opt = (By.ID, 'button_google_deny')
 
     # Check Already Login Locators
-    side_bar = (By.ID, 'com.ebay.mobile:id/home')
-    user_bar = (By.XPATH, '//android.widget.LinearLayout[@content-desc="Featured Deals,3 items"]/android.widget.LinearLayout/android.widget.LinearLayout')
+    side_bar_open = (By.ID, 'home')
+    side_bar_close = (By.ID, 'menuitem_home')
+    user_sign_in = (By.ID, 'textview_sign_in_status')
+    user_sign_out = (By.ID, 'textview_sign_out_status')
 
-    def __init__(self, ip_address, port_no, desire_capabilities):
-        self.base_page = BasePage(ip_address, port_no, desire_capabilities)
+    def __init__(self):
+        self.base_page = BasePage()
         self.log = self.base_page.log
 
     def login(self, user, pass_word, short_name, submit=True):
@@ -42,11 +44,13 @@ class UserLogin:
 
     def check_already_login(self, user_name):
         login_status = False
-        self.base_page.click(self.side_bar)
-        user_bar_element = self.base_page.wait_for_element(self.user_bar)
-        if user_name in user_bar_element.text:
-            login_status = True
-        self.base_page.click(self.side_bar)
+        self.base_page.click(self.side_bar_open)
+        user_sign_out_status = self.base_page.wait_for_element(self.user_sign_out)
+        if not user_sign_out_status:
+            user_sign_in_satus = self.base_page.wait_for_element(self.user_sign_in)
+            if user_name in user_sign_in_satus.text:
+                login_status = True
+        self.base_page.click(self.side_bar_close)
         return login_status
 
 

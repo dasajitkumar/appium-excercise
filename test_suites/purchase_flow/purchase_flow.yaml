@@ -1,0 +1,5 @@
+TEST_PURCHASE_FLOW:
+    login_user: 'dasajitkumar@gmail.com'
+    password: '123abc?'
+    short_name: 'ajit'
+    product_name: 'iphonex'

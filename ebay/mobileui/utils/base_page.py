@@ -1,5 +1,5 @@
 import logging
-from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -9,6 +9,8 @@ DEFAULT_WAIT_TIME = 10
 
 
 class BasePage:
+    progress_bar = (By.ID, 'progress_bar')
+
     def __init__(self):
         """
         Initializing the appium driver
@@ -29,6 +31,7 @@ class BasePage:
         try:
             element = WebDriverWait(self.driver, wait_time).until(EC.element_to_be_clickable(locator))
             element.click()
+            self.wait_for_loading()
         except Exception as e:
             self.log.info("Exception while clicking the element " + str(e))
 
@@ -68,3 +71,15 @@ class BasePage:
             return element
         except Exception as e:
             self.log.info("Exception while waiting for the element " + str(e))
+
+    def wait_for_loading(self):
+        """
+
+        :return:
+        """
+        try:
+            WebDriverWait(self.driver, DEFAULT_WAIT_TIME).until(
+                EC.invisibility_of_element_located(self.progress_bar))
+        except Exception as e:
+            self.log.info("Exception while waiting for the progress bar to disappear " + str(e))
+

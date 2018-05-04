@@ -23,8 +23,9 @@ class UserLogin:
     def login(self, user, pass_word, short_name, submit=True):
         """
         Login into ebay mobile ui
-        :param user_name: ebay user name
-        :param password: ebay password
+        :param user: ebay user name
+        :param pass_word: ebay password
+        :param short_name: short name of the user
         :param submit: Default True and it also accepts False
         :return: true
         """
@@ -43,6 +44,11 @@ class UserLogin:
             self.base_page.log.info("Already logged in...")
 
     def check_already_login(self, user_name):
+        """
+
+        :param user_name:
+        :return:
+        """
         login_status = False
         self.base_page.click(self.side_bar_open)
         user_sign_out_status = self.base_page.wait_for_element(self.user_sign_out)

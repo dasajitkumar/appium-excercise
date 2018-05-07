@@ -45,9 +45,9 @@ class UserLogin:
 
     def check_already_login(self, user_name):
         """
-
-        :param user_name:
-        :return:
+        Checking for user is already logged in
+        :param user_name: user name
+        :return: True/False
         """
         login_status = False
         self.base_page.click(self.side_bar_open)

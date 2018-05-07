@@ -10,8 +10,9 @@ class PurchasePoduct(ProductSearch):
 
     def purchase_product(self, product_name=False):
         """
-
-        :return:
+        Purchase a product. If product name is passed firs search the product and then purchase the product
+        :param product_name: product name to search
+        :return: None
         """
         if product_name:
             self.base_page.click(self.home_search_bar)

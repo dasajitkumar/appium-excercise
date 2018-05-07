@@ -12,7 +12,7 @@ class ProductSearchTest(unittest.TestCase):
     def setUp(self):
         self.user_login = UserLogin()
         self.product_purchase = PurchasePoduct(self.user_login.base_page)
-        test_data = yaml.load(open('purchase_flow.yaml', 'r'))
+        test_data = yaml.load(open('test.yaml', 'r'))
         self.user_name = test_data['UNIT_TEST']['login_user']
         self.password = test_data['UNIT_TEST']['password']
         self.short_name = test_data['UNIT_TEST']['short_name']

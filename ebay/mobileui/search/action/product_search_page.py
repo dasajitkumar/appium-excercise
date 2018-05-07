@@ -16,6 +16,12 @@ class ProductSearch:
         self.base_page = base_page
 
     def search_product(self, prod_name, open_product=False):
+        """
+        Search a product and open the search result
+        :param prod_name: product name
+        :param open_product: first_item (to open the first search result)
+        :return: None
+        """
         self.base_page.click(self.home_search_bar)
         self.base_page.send_keys(self.search_bar_after_click, prod_name)
         self.base_page.click(self.suggest_list)

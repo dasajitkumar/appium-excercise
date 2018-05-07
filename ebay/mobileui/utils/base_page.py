@@ -23,10 +23,10 @@ class BasePage:
 
     def click(self, locator, wait_time=DEFAULT_WAIT_TIME):
         """
-
-        :param locator:
-        :param wait_time:
-        :return:
+        Wrapper for the appium click api
+        :param locator: appium location
+        :param wait_time: wait time till item to be click able
+        :return: element/None
         """
         try:
             element = WebDriverWait(self.driver, wait_time).until(EC.element_to_be_clickable(locator))
@@ -37,9 +37,9 @@ class BasePage:
 
     def send_keys(self, locator, key_inputs):
         """
-        Typing keys at input locator
-        :param locator:
-        :param key_inputs:
+        Wrapper for the send_keys appium api
+        :param locator: appium locator
+        :param key_inputs: text to be typed
         """
         try:
             WebDriverWait(self.driver, DEFAULT_WAIT_TIME).until(
@@ -49,9 +49,9 @@ class BasePage:
 
     def find_element(self, locator):
         """
-
-        :param locator:
-        :return:
+        Wrapper for the find_element appium API
+        :param locator: appuim locator
+        :return: element/None
         """
         try:
             element = self.driver.find_element(*locator)
@@ -59,14 +59,14 @@ class BasePage:
         except Exception as e:
             self.log.info("Exception while finding the element " + str(e))
 
-    def wait_for_element(self, locator):
+    def wait_for_element(self, locator, wait_time=DEFAULT_WAIT_TIME):
         """
-
-        :param locator:
-        :return:
+        Wait till element to be located
+        :param locator: appium locator
+        :return: element/None
         """
         try:
-            element = WebDriverWait(self.driver, DEFAULT_WAIT_TIME).until(
+            element = WebDriverWait(self.driver, wait_time).until(
                 EC.visibility_of_element_located(locator))
             return element
         except Exception as e:
@@ -74,8 +74,8 @@ class BasePage:
 
     def wait_for_loading(self):
         """
-
-        :return:
+        Wait till progress bar to be disappeared
+        :return: None
         """
         try:
             WebDriverWait(self.driver, DEFAULT_WAIT_TIME).until(

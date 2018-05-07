@@ -1,0 +1,21 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "test_suites.purchase_flow.test_purchase_flow",
+    "children" : [ {
+      "name" : "test_purchase",
+      "uid" : "e5a7da4c29826407",
+      "parentUid" : "4f2c1e87a66c6234398f22a059f97e68",
+      "status" : "passed",
+      "time" : {
+        "start" : 1525699812473,
+        "stop" : 1525700179561,
+        "duration" : 367088
+      },
+      "flaky" : true,
+      "parameters" : [ ]
+    } ],
+    "uid" : "test_suites.purchase_flow.test_purchase_flow"
+  } ]
+}

@@ -1,0 +1,25 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "DESKTOP-NKTDNT4",
+    "children" : [ {
+      "name" : "5732-MainThread",
+      "children" : [ {
+        "name" : "test_purchase",
+        "uid" : "e5a7da4c29826407",
+        "parentUid" : "4695f4bf9f93ab7db3460eaa276ccae6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1525699812473,
+          "stop" : 1525700179561,
+          "duration" : 367088
+        },
+        "flaky" : true,
+        "parameters" : [ ]
+      } ],
+      "uid" : "4695f4bf9f93ab7db3460eaa276ccae6"
+    } ],
+    "uid" : "0dc6722dc397e0e82033586b89d39e66"
+  } ]
+}

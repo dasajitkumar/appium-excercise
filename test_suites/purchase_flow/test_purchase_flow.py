@@ -1,11 +1,11 @@
 import yaml
-import pytest
+import unittest
 from ebay.mobileui.login.action.login_page import UserLogin
 from ebay.mobileui.purchase.action.purchase_page import PurchasePoduct
 
 
-class TestPurchaseFlow:
-    def setup_method(self):
+class TestPurchaseFlow(unittest.TestCase):
+    def setUp(self):
         user_login = UserLogin()
         self.product_purchase = PurchasePoduct(user_login.base_page)
         test_data = yaml.load(open('purchase_flow.yaml', 'r'))
@@ -20,5 +20,10 @@ class TestPurchaseFlow:
     def test_purchase(self):
         self.product_purchase.purchase_product(self.product_name)
 
-    def teardown_method(self):
+    def tearDown(self):
         pass
+
+
+if __name__ == "__main__":
+    unittest.main()
+
